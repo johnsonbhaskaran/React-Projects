@@ -1,24 +1,19 @@
-import { useState } from "react";
+import { useRef } from "react";
 import FirstComponent from "./components/FirstComponent";
 
 const App = () => {
-  const [x, setx] = useState(0);
-
-  const btnClickHandler = () => {
-    setx((x) => x + 1);
-  };
+  const inputRef = useRef(null);
 
   return (
     <div>
-      <h1>{x}</h1>
+      <input ref={inputRef} type='text' />
       <button
         onClick={() => {
-          btnClickHandler();
+          console.log(inputRef.current.value);
         }}
       >
-        Click me
+        Submit
       </button>
-      <FirstComponent dataPasssing={x} functionPassing={setx} />
     </div>
   );
 };
