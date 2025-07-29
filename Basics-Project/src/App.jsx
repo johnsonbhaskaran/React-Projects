@@ -1,8 +1,10 @@
+import { useState } from "react";
+
 const App = () => {
-  let x = 0;
+  const [x, setx] = useState(0);
+
   const btnClickHandler = () => {
-    x++;
-    console.log("Button Clicked: ", x);
+    setx((x) => x + 1);
   };
 
   return (
