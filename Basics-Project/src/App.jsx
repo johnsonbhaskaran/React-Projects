@@ -1,9 +1,20 @@
-import Navbar from "./components/Navbar";
-
 const App = () => {
+  let x = 0;
+  const btnClickHandler = () => {
+    x++;
+    console.log("Button Clicked: ", x);
+  };
+
   return (
     <div>
-      <Navbar />
+      <h1>{x}</h1>
+      <button
+        onClick={() => {
+          btnClickHandler();
+        }}
+      >
+        Click me
+      </button>
     </div>
   );
 };
