@@ -18,7 +18,7 @@ const App = () => {
       >
         Click me
       </button>
-      <FirstComponent prop_x={x} />
+      <FirstComponent dataPasssing={x} functionPassing={setx} />
     </div>
   );
 };
