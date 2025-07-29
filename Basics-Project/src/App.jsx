@@ -1,4 +1,5 @@
 import { useState } from "react";
+import FirstComponent from "./components/FirstComponent";
 
 const App = () => {
   const [x, setx] = useState(0);
@@ -17,6 +18,7 @@ const App = () => {
       >
         Click me
       </button>
+      <FirstComponent prop_x={x} />
     </div>
   );
 };
