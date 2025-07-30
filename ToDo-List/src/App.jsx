@@ -1,5 +1,11 @@
+import ToDo from "./Components/ToDo";
+
 const App = () => {
-  return <div>App</div>;
+  return (
+    <>
+      <ToDo />
+    </>
+  );
 };
 
 export default App;
