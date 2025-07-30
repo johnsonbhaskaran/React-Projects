@@ -4,6 +4,12 @@ import not_tick from "./Assets/not_tick.png";
 import cross from "./Assets/cross.png";
 
 const ToDoItems = ({ no, display, text, setTodos }) => {
+  const deleteHandler = (no) => {
+    let data = JSON.parse(localStorage.getItem("todos"));
+    data = data.filter((todo) => todo.no !== no);
+    setTodos(data);
+  };
+
   const toggle = (no) => {
     let data = JSON.parse(localStorage.getItem("todos"));
     for (let i = 0; i < data.length; i++) {
@@ -22,14 +28,19 @@ const ToDoItems = ({ no, display, text, setTodos }) => {
         onClick={() => {
           toggle(no);
         }}
-        className='todoitems-container'
+        className={`todoitems-container ${display}`}
       >
         {display === "" ? <img src={not_tick} alt='' /> : <img src={tick} alt='' />}
-        <div className='todoitems-text'>
-          {no} {text} {display}
-        </div>
+        <div className='todoitems-text'>{text}</div>
       </div>
-      <img className='todoitems-cross-icon' src={cross} alt='' />
+      <img
+        onClick={() => {
+          deleteHandler(no);
+        }}
+        className='todoitems-cross-icon'
+        src={cross}
+        alt=''
+      />
     </div>
   );
 };
