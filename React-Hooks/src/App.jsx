@@ -1,11 +1,11 @@
-import UseRefHook from "./components/UseRefHook.jsx";
+import UseRefHookDOM from "./components/UseRefHookDOM.jsx";
 
 import "./App.css";
 
 function App() {
   return (
     <>
-      <UseRefHook />
+      <UseRefHookDOM />
     </>
   );
 }
