@@ -1,11 +1,11 @@
-import UseCallbackHook from "./components/UseCallbackHook.jsx";
+import CustomHook from "./components/CustomHook.jsx";
 
 import "./App.css";
 
 function App() {
   return (
     <>
-      <UseCallbackHook />
+      <CustomHook />
     </>
   );
 }
