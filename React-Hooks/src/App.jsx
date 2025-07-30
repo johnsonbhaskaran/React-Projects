@@ -1,11 +1,11 @@
-import UseRefHookDOM from "./components/UseRefHookDOM.jsx";
+import UseMemoHook from "./components/UseMemoHook.jsx";
 
 import "./App.css";
 
 function App() {
   return (
     <>
-      <UseRefHookDOM />
+      <UseMemoHook />
     </>
   );
 }
