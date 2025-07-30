@@ -1,11 +1,11 @@
-import UseMemoHook from "./components/UseMemoHook.jsx";
+import UseCallbackHook from "./components/UseCallbackHook.jsx";
 
 import "./App.css";
 
 function App() {
   return (
     <>
-      <UseMemoHook />
+      <UseCallbackHook />
     </>
   );
 }
