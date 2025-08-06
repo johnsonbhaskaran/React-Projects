@@ -1,6 +1,6 @@
 const Button = ({ children }) => {
   return (
-    <button className='flex bg-blue-600 px-4 py-2 rounded-lg font-medium text-white'>
+    <button className='flex gap-2 bg-blue-600 px-4 py-2 rounded-lg font-medium text-white'>
       {children}
     </button>
   );
