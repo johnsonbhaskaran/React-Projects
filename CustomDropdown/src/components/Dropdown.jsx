@@ -1,10 +1,12 @@
 import { useState } from "react";
+import useClickOutside from "../hooks/useClickOutside";
 
 export default function Dropdown({ children, trigger }) {
   const [show, setShow] = useState(false);
+  const dropRef = useClickOutside(() => setShow(false));
 
   return (
-    <div className='relative w-fit' onClick={() => setShow((curr) => !curr)}>
+    <div className='relative w-fit' onClick={() => setShow((curr) => !curr)} ref={dropRef}>
       <div>{trigger}</div>
       {show && (
         <ul className='right-0 absolute bg-white shadow mt-2 rounded-lg divide-y divide-gray-100 min-w-max overflow-hidden'>
