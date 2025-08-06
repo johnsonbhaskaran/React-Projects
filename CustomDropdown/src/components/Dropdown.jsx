@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useClickOutside from "../hooks/useClickOutside";
 
-export default function Dropdown({ children, trigger }) {
+export default function Dropdown({ children, trigger, onToggle }) {
   const [show, setShow] = useState(false);
   const dropRef = useClickOutside(() => setShow(false));
+
+  useEffect(() => {
+    onToggle?.(show);
+  }, []);
 
   return (
     <div className='relative w-fit' onClick={() => setShow((curr) => !curr)} ref={dropRef}>
