@@ -9,16 +9,18 @@ function App() {
       <nav className='flex justify-end items-start shadow shadow-gray-900 px-4 py-2'>
         <Dropdown trigger={<Button>Menu</Button>}>
           <DropdownList>
-            <img
-              src='https://api.dicebear.com/9.x/adventurer/svg?seed=Amaya'
-              alt=''
-              className='rounded-full w-16'
-            />
-            <div className='py-2'>
-              <p className='font-medium'>John Doe</p>
-              <a href='' className='text-sm-font-medium text-gray-500'>
-                johndoe@gmail.com
-              </a>
+            <div className='flex flex-col items-center'>
+              <img
+                src='https://api.dicebear.com/9.x/adventurer/svg?seed=Amaya'
+                alt=''
+                className='bg-gray-200 rounded-full outline outline-gray-500 w-16'
+              />
+              <div className='py-2 text-center'>
+                <p className='font-medium'>John Doe</p>
+                <a href='' className='text-sm-font-medium text-gray-500'>
+                  johndoe@gmail.com
+                </a>
+              </div>
             </div>
           </DropdownList>
           <DropdownList>
