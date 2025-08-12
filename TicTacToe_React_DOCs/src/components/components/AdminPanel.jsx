@@ -1,4 +1,4 @@
-const AdminPanel = () => {
+const AdminPanel = ({ onclick }) => {
   console.log("Admin Panel component rendered");
 
   return (
