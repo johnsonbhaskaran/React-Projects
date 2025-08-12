@@ -1,10 +1,10 @@
-const AdminPanel = ({ onclick }) => {
+const AdminPanel = ({ clickHandled }) => {
   console.log("Admin Panel component rendered");
 
   return (
     <div>
       AdminPanel
-      <button onClick={onclick}>Logout</button>
+      <button onClick={clickHandled}>Logout</button>
     </div>
   );
 };

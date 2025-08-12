@@ -1,10 +1,10 @@
-const LoginForm = ({ onclick }) => {
+const LoginForm = ({ clickHandled }) => {
   console.log("Login Form component rendered");
 
   return (
     <div>
       LoginForm
-      <button onClick={onclick}>Login</button>
+      <button onClick={clickHandled}>Login</button>
     </div>
   );
 };
