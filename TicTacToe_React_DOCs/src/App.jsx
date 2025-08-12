@@ -1,9 +1,10 @@
 import "./App.css";
+import StringConcatenation from "./components/StringConcatenation";
 
 function App() {
   return (
     <>
-      <div>APP</div>
+      <StringConcatenation />
     </>
   );
 }
