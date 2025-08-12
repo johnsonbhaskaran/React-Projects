@@ -9,15 +9,15 @@ const ConditionalRendering = () => {
 
   useEffect(() => {}, [content]);
 
-  function clickHandled() {
+  function onclick() {
     console.log("clicked");
     setIsLoggedIn(!isLoggedIn);
   }
 
   if (isLoggedIn) {
-    content = <AdminPanel onclick={clickHandled} />;
+    content = <AdminPanel handleClick={onclick} />;
   } else {
-    content = <LoginForm onclick={clickHandled} />;
+    content = <LoginForm handleClick={onclick} />;
   }
 
   return <div>{content}</div>;
