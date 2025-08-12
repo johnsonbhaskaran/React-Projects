@@ -15,7 +15,7 @@ const ConditionalRendering = () => {
   }
 
   if (isLoggedIn) {
-    content = <AdminPanel onclick={onclick()} />;
+    content = <AdminPanel onclick={onclick} />;
   } else {
     content = <LoginForm onclick={onclick} />;
   }
