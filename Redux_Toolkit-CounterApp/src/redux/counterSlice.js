@@ -13,6 +13,6 @@ const counterSlice = createSlice({
   },
 });
 
-//Action creators are generated for each case reducer function
+//Action creators are generated for each reducer functions
 export const { increment, decrement } = counterSlice.actions;
 export default counterSlice.reducer;
