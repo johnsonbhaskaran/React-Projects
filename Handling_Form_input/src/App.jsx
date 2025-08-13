@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      <div className='mx-auto my-6 max-w-md h-screen container'>
+      <div className='mx-auto py-6 max-w-md h-screen container'>
         <h3>Contact Customer Support*</h3>
         <div className='flex flex-col space-y-4 mt-6'>
           <input
