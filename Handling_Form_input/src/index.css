@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+::selection {
+  @apply bg-purple-600 text-white;
+}
