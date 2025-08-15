@@ -46,27 +46,35 @@ function NumberGuessingGame() {
   const handleInput = () => {
     const num = parseInt(input);
 
-    console.log(attempts);
-
     if (isNaN(num) || randomNumber == null) return;
-    // [Optional] - Check if the input is a number between 1 and 10
-    if (num > 10 || num <= 0) {
+
+    if (num < 1 || num > 10) {
       setMessage("Please enter a number between 1 and 10");
-      // Check if the input is correct
-    } else {
-      if (num === randomNumber)
-        setMessage(`Correct! 🏆, You guessed right! The correct number is ${randomNumber}`);
-      if (num > randomNumber) setMessage(`Too high, Try again. You have ${attempts} attempts left`);
-      if (num < randomNumber) setMessage(`Too low, Try again. You have ${attempts} attempts left`);
+      return;
     }
-    // Check for the number of attempts left - Game Over if attempts are 0
-    if (attempts === 0) {
+
+    // win condition
+    if (num === randomNumber) {
+      setMessage(`Correct! 🏆, You guessed right! The correct number is ${randomNumber}`);
+      handleReset();
+      return;
+    }
+
+    // game over condition
+    if (attempts <= 1) {
       setMessage(`Game Over! 😢, The correct number was ${randomNumber}`);
       handleReset();
+      return;
     }
 
-    // Check for the number of attempts left - Decrease the attempts by 1 on every try
-    if (attempts >= 1) setAttempts(() => attempts - 1);
+    // hint and update attempts
+    setAttempts(attempts - 1);
+
+    if (num > randomNumber) {
+      setMessage(`Too high, Try Again. You have ${attempts - 1} attempts left`);
+    } else {
+      setMessage(`Too low, Try Again. You have ${attempts - 1} attempts left`);
+    }
   };
 
   const handleReset = () => {
