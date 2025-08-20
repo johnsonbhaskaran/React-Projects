@@ -1,16 +1,27 @@
 import logo from "../assets/logo.jpg";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div>
+    <div className='navbar'>
       <img src={logo} alt='' />
       <ul>
-        <li>Home</li>
-        <li>Products</li>
-        <li>About</li>
-        <li>Contact</li>
+        <Link to='/'>
+          <li>Home</li>
+        </Link>
+        <Link to='/products'>
+          <li>Products</li>
+        </Link>
+        <Link to='/about'>
+          <li>About</li>
+        </Link>
+        <Link to='/contact'>
+          <li>Contact</li>
+        </Link>
       </ul>
-      <button>Get Started</button>
+      <button>
+        <div>Get Started</div>
+      </button>
     </div>
   );
 };
