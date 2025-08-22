@@ -27,8 +27,11 @@ const cancelBooking = (name, refundAmount) => {
 
 // Reducers
 const reservationHistory = (oldReservationList = [], action) => {
+  // Adding new booking to the oldReservationList
   if (action.type === "NEW_BOOKING") {
     return [...oldReservationList, action.payload];
+
+    // Removing cancelled booking from the oldReservationList
   } else if (action.type === "CANCEL_BOOKING") {
     return oldReservationList.filter((record) => {
       return record.name !== action.payload.name;
@@ -39,6 +42,7 @@ const reservationHistory = (oldReservationList = [], action) => {
 };
 
 const cancellationHistory = (oldCancellationList = [], action) => {
+  // Adding info of the cancelled booking in the oldCancellationList
   if (action.type === "CANCEL_BOOKING") {
     return [...oldCancellationList, action.payload];
   }
@@ -47,8 +51,11 @@ const cancellationHistory = (oldCancellationList = [], action) => {
 };
 
 const accounting = (totalMoney = 100, action) => {
+  // Adding new booking amount to the total money
   if (action.type === "NEW_BOOKING") {
     return totalMoney + action.payload.amount;
+
+    // Deducting the refund amount from the total money
   } else if (action.type === "CANCEL_BOOKING") {
     return totalMoney - action.payload.refundAmount;
   }
@@ -61,12 +68,14 @@ console.log(Redux); // => methods: combineReducers(), createStore(), bindActionC
 
 const { createStore, combineReducers } = Redux;
 
+// Combining all Reducers using the Redux.combineReducers()
 const railwayCentralStore = combineReducers({
   accounting,
   reservationHistory,
   cancellationHistory,
 });
 
+// Creating central Redux store using the Redux.createStore()
 const store = createStore(railwayCentralStore);
 
 // const action = newBooking("Dipesh", 20);
@@ -78,4 +87,5 @@ store.dispatch(newBooking("Mani", 10));
 
 store.dispatch(cancelBooking("Mani", 5));
 
+// Displaying the current status of the updated store using the getState()
 console.log(store.getState());
