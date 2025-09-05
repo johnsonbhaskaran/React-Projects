@@ -76,7 +76,7 @@ function App() {
 
       <ul className='space-y-4'>
         {list.map((user) => (
-          <li key={user.id} className='hover:bg-white/10 p-2 border rounded'>
+          <li key={user.id + user.email} className='hover:bg-white/10 p-2 border rounded'>
             <div className='flex justify-between'>
               <span>
                 {user.name} ({user.email})
