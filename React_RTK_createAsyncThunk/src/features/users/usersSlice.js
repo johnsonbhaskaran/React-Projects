@@ -51,7 +51,9 @@ const usersSlice = createSlice({
 
     // POST new user
     builder.addCase(addUser.fulfilled, (state, action) => {
-      state.list.push(action.payload);
+      state.list.unshift(action.payload); // Adds to the top of the list
+
+      // state.list.push(action.payload); // Adds at the end of the list
     });
 
     // DELETE user
