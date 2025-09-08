@@ -19,7 +19,7 @@ const Home = () => {
       dispatch(addMovies(response.data));
     };
     fetchMovies();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
