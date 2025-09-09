@@ -16,8 +16,8 @@ const MovieListing = () => {
   return (
     <div>
       <div>
-        <h2>Dovies</h2>
-        <div>{renderMovies}</div>
+        <h2 className='mt-4 text-3xl'>Movies</h2>
+        <div className='gap-4 grid grid-cols-4 xl:grid-cols-6 my-6'>{renderMovies}</div>
       </div>
     </div>
   );
