@@ -39,7 +39,11 @@ const initialState = {
 const movieSlice = createSlice({
   name: "movies",
   initialState,
-  reducers: {},
+  reducers: {
+    removeMovieOrSeriesDetail: (state) => {
+      state.getMovieOrSeriesDetail = {};
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchMoviesAsync.pending, (state) => {
@@ -64,7 +68,7 @@ const movieSlice = createSlice({
   },
 });
 
-// export const { addMovies } = movieSlice.actions;
+export const { removeMovieOrSeriesDetail } = movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;
 export const getAllSeries = (state) => state.movies.series;
 export const getMovieOrSeriesDetail = (state) => state.movies.details;
