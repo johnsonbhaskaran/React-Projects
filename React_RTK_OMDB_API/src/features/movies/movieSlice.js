@@ -20,9 +20,18 @@ export const fetchSeriesAsync = createAsyncThunk("movies/getAllSeries", async ()
   return response.data;
 });
 
+export const fetchMovieOrSeriesDetailAsync = createAsyncThunk(
+  "movies/getMovieOrSeriesDetail",
+  async (id) => {
+    const response = await movieApi.get(`?apikey=${APIkey}&i=${id}&Plot=full`);
+    return response.data;
+  }
+);
+
 const initialState = {
   movies: [],
   series: [],
+  details: {},
   loading: false,
   error: null,
 };
@@ -48,10 +57,15 @@ const movieSlice = createSlice({
       state.loading = false;
       state.series = action.payload;
     });
+    builder.addCase(fetchMovieOrSeriesDetailAsync.fulfilled, (state, action) => {
+      state.loading = false;
+      state.details = action.payload;
+    });
   },
 });
 
 // export const { addMovies } = movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;
 export const getAllSeries = (state) => state.movies.series;
+export const getMovieOrSeriesDetail = (state) => state.movies.details;
 export default movieSlice.reducer;
