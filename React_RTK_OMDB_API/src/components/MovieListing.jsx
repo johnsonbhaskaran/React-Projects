@@ -4,7 +4,7 @@ import MovieCard from "./MovieCard";
 
 const MovieListing = () => {
   const movies = useSelector(getAllMovies);
-  let renderMovies = " ";
+  let renderMovies = "";
 
   renderMovies =
     movies.Response === "True" ? (
