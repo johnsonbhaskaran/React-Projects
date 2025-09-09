@@ -9,7 +9,7 @@ import Footer from "./components/Footer.jsx";
 function App() {
   return (
     <>
-      <div className='flex flex-col justify-between bg-gray-900 h-screen'>
+      <div className='flex flex-col justify-between h-screen'>
         <Header></Header>
         <div className='mx-10 grow'>
           <Routes>
