@@ -1,4 +1,4 @@
 const MovieCard = () => {
-  return <div>MovieCard</div>;
+  return <div>moviecard</div>;
 };
 export default MovieCard;
