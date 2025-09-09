@@ -3,7 +3,7 @@ import movieApi from "../../common/apis/movieApi";
 import { APIkey } from "../../common/apis/MovieApiKey";
 
 export const fetchMoviesAsync = createAsyncThunk("movies/getAllMovies", async () => {
-  const movieText = "Harry";
+  const movieText = "scooby";
   const response = await movieApi
     .get(`?apikey=${APIkey}&s=${movieText}&type=movie`)
     .catch((err) => console.log("Error: ", err));
@@ -11,8 +11,18 @@ export const fetchMoviesAsync = createAsyncThunk("movies/getAllMovies", async ()
   return response.data;
 });
 
+export const fetchSeriesAsync = createAsyncThunk("movies/getAllSeries", async () => {
+  const seriesText = "friends";
+  const response = await movieApi
+    .get(`?apikey=${APIkey}&s=${seriesText}&type=series`)
+    .catch((err) => console.log("Error: ", err));
+
+  return response.data;
+});
+
 const initialState = {
   movies: [],
+  series: [],
   loading: false,
   error: null,
 };
@@ -34,9 +44,14 @@ const movieSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       });
+    builder.addCase(fetchSeriesAsync.fulfilled, (state, action) => {
+      state.loading = false;
+      state.series = action.payload;
+    });
   },
 });
 
 // export const { addMovies } = movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;
+export const getAllSeries = (state) => state.movies.series;
 export default movieSlice.reducer;
