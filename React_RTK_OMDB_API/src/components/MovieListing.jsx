@@ -19,7 +19,7 @@ const MovieListing = () => {
     <div>
       <div>
         <h2 className='mt-4 text-3xl'>Movies</h2>
-        <div className='my-6 overflow-visible'>
+        <div className='my-6'>
           <Slider {...settings}>{renderMovies}</Slider>
         </div>
       </div>

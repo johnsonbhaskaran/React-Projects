@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import { getAllSeries } from "../features/movies/movieSlice.js";
 import MovieCard from "./MovieCard";
+import { settings } from "../common/slickSettings.js";
+import Slider from "react-slick";
 
 const SeriesListing = () => {
   const series = useSelector(getAllSeries);
@@ -17,7 +19,9 @@ const SeriesListing = () => {
     <div>
       <div>
         <h2 className='mt-4 text-3xl'>Series</h2>
-        <div className='gap-4 grid grid-cols-4 xl:grid-cols-6 my-6'>{renderSeries}</div>
+        <div className='my-6'>
+          <Slider {...settings}>{renderSeries}</Slider>
+        </div>
       </div>
     </div>
   );
