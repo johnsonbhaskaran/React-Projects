@@ -1,12 +1,17 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { fetchSeriesAsync, fetchMoviesAsync } from "../features/movies/movieSlice";
 
 const Header = () => {
   const [term, setTerm] = useState("");
+  const dispatch = useDispatch();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(term);
+    dispatch(fetchMoviesAsync(term));
+    dispatch(fetchSeriesAsync(term));
+    setTerm("");
   };
 
   return (
@@ -16,7 +21,7 @@ const Header = () => {
       </Link>
       <form onSubmit={submitHandler}>
         <input
-          className='bg-white/30 focus:bg-white px-3 border border-slate-700 focus:rounded-none focus:outline-none w-72 h-8 text-black'
+          className='bg-slate-300/30 focus:bg-white px-3 border border-slate-700 focus:rounded-none focus:outline-none w-72 h-8 text-black'
           id='search'
           value={term}
           placeholder='Search Movies or Shows'
