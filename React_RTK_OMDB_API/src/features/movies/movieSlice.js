@@ -41,7 +41,7 @@ const movieSlice = createSlice({
   initialState,
   reducers: {
     removeMovieOrSeriesDetail: (state) => {
-      state.getMovieOrSeriesDetail = {};
+      state.details = {};
     },
   },
   extraReducers: (builder) => {

@@ -22,7 +22,7 @@ const MovieDetail = () => {
   return (
     <>
       {Object.keys(data).length === 0 ? (
-        <div>...Loading</div>
+        <div className='flex justify-center items-center h-screen text-3xl'>...Loading</div>
       ) : (
         <div className='flex justify-center my-6'>
           <div className='space-y-6 mr-6 w-1/2'>
