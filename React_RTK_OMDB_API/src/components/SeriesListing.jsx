@@ -1,16 +1,19 @@
 import { useSelector } from "react-redux";
-import { getAllSeries } from "../features/movies/movieSlice.js";
+import { getAllSeries, getLoadingState } from "../features/movies/movieSlice.js";
 import MovieCard from "./MovieCard";
-import { settings } from "../common/slickSettings.js";
 import Slider from "react-slick";
+import { settings } from "../common/slickSettings.js";
 
 const SeriesListing = () => {
   const series = useSelector(getAllSeries);
+  const loading = useSelector(getLoadingState);
   let renderSeries = "";
 
   renderSeries =
     series.Response === "True" ? (
       series.Search.map((series, index) => <MovieCard key={index} data={series} />)
+    ) : loading ? (
+      <div className='flex justify-center items-center text-2xl'>LOADING... Please wait...</div>
     ) : (
       <div className='text-red-500'>Error: {series.Error}</div>
     );

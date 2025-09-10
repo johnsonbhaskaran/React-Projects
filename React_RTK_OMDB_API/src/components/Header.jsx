@@ -9,6 +9,7 @@ const Header = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    if (term === "") return alert("Please enter search term!");
     dispatch(fetchMoviesAsync(term));
     dispatch(fetchSeriesAsync(term));
     setTerm("");

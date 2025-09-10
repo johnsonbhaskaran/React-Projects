@@ -70,4 +70,5 @@ export const { removeMovieOrSeriesDetail } = movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;
 export const getAllSeries = (state) => state.movies.series;
 export const getMovieOrSeriesDetail = (state) => state.movies.details;
+export const getLoadingState = (state) => state.movies.loading;
 export default movieSlice.reducer;
