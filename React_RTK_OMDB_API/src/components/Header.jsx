@@ -1,11 +1,34 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [term, setTerm] = useState("");
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(term);
+  };
+
   return (
-    <div className='flex justify-center items-center bg-slate-700 py-4'>
+    <div className='flex items-center gap-32 bg-slate-700 px-16 py-4 text-left'>
       <Link to='/'>
         <div className='font-semibold text-3xl'>Movie App</div>
       </Link>
+      <form onSubmit={submitHandler}>
+        <input
+          className='bg-white/30 focus:bg-white px-3 border border-slate-700 focus:rounded-none focus:outline-none w-72 h-8 text-black'
+          id='search'
+          value={term}
+          placeholder='Search Movies or Shows'
+          onChange={(e) => setTerm(e.target.value)}
+        />
+        <button
+          type='submit'
+          className='bg-white px-3 border border-slate-700 focus:rounded-none focus:outline-none h-8 text-black cursor-pointer'
+        >
+          Search
+        </button>
+      </form>
     </div>
   );
 };
