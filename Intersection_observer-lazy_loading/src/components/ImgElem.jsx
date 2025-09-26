@@ -8,7 +8,7 @@ const ImgElem = ({ src }) => {
   console.log(ref.current);
 
   useEffect(() => {
-    let observer = new IntersectionObserver(callback);
+    let observer = new IntersectionObserver();
 
     if (ref?.current) observer.observe(ref.current);
 
