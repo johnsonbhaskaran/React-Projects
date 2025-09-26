@@ -1,5 +1,5 @@
 {
-  "name": "intersection-observer-lazy-loading",
+  "name": "lazy-loading-with-intersection-observer",
   "private": true,
   "version": "0.0.0",
   "type": "module",
