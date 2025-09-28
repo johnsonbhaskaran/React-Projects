@@ -1,9 +1,10 @@
 import "./App.css";
+import PostUseState from "./components/PostUseState";
 
 function App() {
   return (
     <>
-      <div>APP</div>
+      <PostUseState />
     </>
   );
 }
