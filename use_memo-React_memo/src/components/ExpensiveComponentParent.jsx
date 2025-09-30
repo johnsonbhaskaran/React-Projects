@@ -2,20 +2,26 @@ import { useState } from "react";
 import ExpensiveComponent from "./components/ExpensiveComponent";
 
 const ExpensiveComponentParent = () => {
-  const [text, setText] = useState("");
-
   console.log("Component re-rendered!");
 
   return (
     <div>
-      <input
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        type='text'
-        placeholder='enter a text'
-      />
+      <Form />
       <ExpensiveComponent />
     </div>
+  );
+};
+
+const Form = () => {
+  const [text, setText] = useState("");
+
+  return (
+    <input
+      value={text}
+      onChange={(e) => setText(e.target.value)}
+      type='text'
+      placeholder='enter a text'
+    />
   );
 };
 export default ExpensiveComponentParent;
