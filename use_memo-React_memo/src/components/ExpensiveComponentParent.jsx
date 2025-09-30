@@ -2,26 +2,29 @@ import { useState } from "react";
 import ExpensiveComponent from "./components/ExpensiveComponent";
 
 const ExpensiveComponentParent = () => {
+  return (
+    <BgProvider>
+      <ExpensiveComponent />
+    </BgProvider>
+  );
+};
+
+const BgProvider = ({ children }) => {
+  const [backgroundColor, setBackgroundColor] = useState("");
+
   console.log("Component re-rendered!");
 
   return (
     <div>
-      <Form />
-      <ExpensiveComponent />
+      <input
+        style={{ backgroundColor }}
+        onChange={(e) => setBackgroundColor(e.target.value)}
+        type='backgroundColor'
+        placeholder='enter a backgroundColor'
+      />
+      {children}
     </div>
   );
 };
 
-const Form = () => {
-  const [text, setText] = useState("");
-
-  return (
-    <input
-      value={text}
-      onChange={(e) => setText(e.target.value)}
-      type='text'
-      placeholder='enter a text'
-    />
-  );
-};
 export default ExpensiveComponentParent;
