@@ -1,10 +1,10 @@
 import "./App.css";
-import UserFunction from "./components/UserFunction";
+import ExpensiveComponentParent from "./components/ExpensiveComponentParent";
 
 function App() {
   return (
     <>
-      <UserFunction />
+      <ExpensiveComponentParent />
     </>
   );
 }
