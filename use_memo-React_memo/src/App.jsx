@@ -1,9 +1,10 @@
 import "./App.css";
+import ExpensiveFunction from "./components/ExpensiveFunction";
 
 function App() {
   return (
     <>
-      <div>APP</div>
+      <ExpensiveFunction />
     </>
   );
 }
