@@ -1,6 +1,7 @@
 import React from "react";
 
-const ExpensiveComponent = React.memo(() => {
+// const ExpensiveComponent = React.memo(() => {
+const ExpensiveComponent = () => {
   console.log("expensive component rendered!");
 
   let total = 0;
@@ -9,5 +10,5 @@ const ExpensiveComponent = React.memo(() => {
   }
 
   return <div>ExpensiveComponent</div>;
-});
+};
 export default ExpensiveComponent;
