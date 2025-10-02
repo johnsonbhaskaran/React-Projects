@@ -13,7 +13,7 @@ import { Box } from "@mui/system";
 const Post = () => {
   return (
     <Box>
-      <Card sx={{ margin: 5 }}>
+      <Card sx={{ margin: 5, marginX: { xs: 1, md: 5 } }}>
         <CardHeader
           avatar={
             <Avatar sx={{ bgcolor: "red" }} aria-label='recipe'>
