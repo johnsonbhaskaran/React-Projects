@@ -1,31 +1,73 @@
-import { useRef } from "react";
+import { useState } from "react";
 import "./App.css";
 import FormInput from "./components/FormInput";
 
 function App() {
-  // const [username, setUsername] = useState("");
+  const [values, setValues] = useState({
+    username: "",
+    email: "",
+    birthday: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-  const usernameRef = useRef();
-  const emailRef = useRef();
-  const fullnameRef = useRef();
-  const passwordRef = useRef();
+  const inputs = [
+    {
+      id: 1,
+      name: "username",
+      type: "text",
+      placeholder: "Username",
+      label: "Username",
+    },
+    {
+      id: 2,
+      name: "email",
+      type: "text",
+      placeholder: "Email",
+      label: "Email",
+    },
+    {
+      id: 3,
+      name: "birthday",
+      type: "text",
+      placeholder: "Birthday",
+      label: "Birthday",
+    },
+    {
+      id: 4,
+      name: "password",
+      type: "password",
+      placeholder: "Password",
+      label: "Password",
+    },
+    {
+      id: 5,
+      name: "confirmPassword",
+      type: "password",
+      placeholder: "Confirm Password",
+      label: "Confirm Password",
+    },
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(usernameRef.current.value);
-    console.log(emailRef.current.value);
-    console.log(fullnameRef.current.value);
-    console.log(passwordRef.current.value);
   };
+
+  const onChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
+  console.log(values);
 
   return (
     <>
       <div className='app'>
         <form onSubmit={handleSubmit}>
-          <FormInput refer={usernameRef} name='username' placeholder={"username"} />
-          <FormInput refer={emailRef} name='email' placeholder={"email"} />
-          <FormInput refer={fullnameRef} name='fullname' placeholder={"fullname"} />
-          <FormInput refer={passwordRef} name='password' placeholder={"password"} />
+          {inputs.map((input) => {
+            return (
+              <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange} />
+            );
+          })}
           <button>Submit</button>
         </form>
       </div>
