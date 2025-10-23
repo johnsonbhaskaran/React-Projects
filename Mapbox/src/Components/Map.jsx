@@ -15,7 +15,9 @@ export default function Map() {
     });
 
     map.on("load", () => {
-      new mapboxgl.Marker().setLngLat([-0.127758, 51.507351]).addTo(map);
+      new mapboxgl.Marker({ color: "salmon", draggable: true })
+        .setLngLat([-0.127758, 51.507351])
+        .addTo(map);
     });
 
     return () => {
