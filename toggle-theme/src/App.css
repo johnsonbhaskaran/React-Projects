@@ -1,3 +1,7 @@
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
 .page {
   display: flex;
   flex-direction: column;
