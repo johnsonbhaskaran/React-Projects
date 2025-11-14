@@ -5,20 +5,19 @@ import { connectDB } from "./config/dbConnect.js";
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-connectDB();
-
 /* -----------------------------------------------------------------/
-                    * app Routes *
+* app Routes *
 /------------------------------------------------------------------*/
 
-app.get("/", (req, res) => {
-  res.send("Hi");
+app.get("/products", (req, res) => {
+  res.send("🚀 Reached products route");
 });
 
 /* -----------------------------------------------------------------/
-                    * Start server *
+* Start server *
 /------------------------------------------------------------------*/
 
 app.listen(PORT, () => {
+  connectDB();
   console.log(`✅ Server running at localhost:${PORT}`);
 });
