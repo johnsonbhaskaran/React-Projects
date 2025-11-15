@@ -1,31 +1,22 @@
 import express from "express";
 import "dotenv/config.js";
 import { connectDB } from "./config/dbConnect.js";
+import productRoutes from "./routes/product.route.js";
 
 const app = express();
 const PORT = process.env.PORT || 8000;
 
 /* -----------------------------------------------------------------/
+                    * Middlewares *
+/------------------------------------------------------------------*/
+
+app.use(express.json()); // allows to accept JSON data in the req. body
+
+/* -----------------------------------------------------------------/
 * app Routes *
 /------------------------------------------------------------------*/
 
-app.get("/products", async (req, res) => {
-  const product = req.body;
-
-  if (!product.name || !product.price || !product.image) {
-    return res.status(400).json({ success: false, message: "Please provide all fields" });
-  }
-
-  const newProduct = new Product(product);
-
-  try {
-    await newProduct.save();
-    res.status(200).json({ success: true, data: newProduct });
-  } catch (err) {
-    console.error("⚠️ Error in creating product:", err.message);
-    res.status(500).json({ success: false, message: "Server Error" });
-  }
-});
+app.use("/api/products", productRoutes);
 
 /* -----------------------------------------------------------------/
 * Start server *
