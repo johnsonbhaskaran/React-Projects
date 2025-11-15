@@ -1,6 +1,6 @@
-import { Model, Schema } from "mongoose";
+import { model, Schema } from "mongoose";
 
-const productSchema = Schema.create(
+const productSchema = Schema(
   {
     name: {
       type: String,
@@ -18,6 +18,6 @@ const productSchema = Schema.create(
   { timestamps: true } // createdAt and updatedAt
 );
 
-const Product = Model("Product", productSchema);
+const Product = model("Product", productSchema);
 
 export default Product;
