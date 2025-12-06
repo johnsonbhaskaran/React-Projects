@@ -93,4 +93,12 @@
 
 ### useEffect
 
+- when side effects are needed
+- one action depends on other like fetching data, changes based on event listeners
+- useEffect cleanup !important
+  - just return a function that removes the event listener.
+    ![UseEffect Hook 2 - Window Inner Width](image.png)
+
+### useContext
+
 -
