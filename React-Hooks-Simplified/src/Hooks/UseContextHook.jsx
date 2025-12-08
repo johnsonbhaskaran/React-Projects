@@ -1,24 +1,14 @@
-import { createContext, useState } from "react";
 import FunctionContextComponents from "../ContextComponents/FunctionContextComponents";
-
-// eslint-disable-next-line react-refresh/only-export-components
-export const ThemeContext = createContext();
+import RedBlueContextComponent from "../ContextComponents/RedBlueContextComponent";
+import { ThemeProvider } from "../context/ThemeContext";
 
 const UseContextHook = () => {
-  const [darkTheme, setDarkTheme] = useState(true);
-
-  function toggleTheme() {
-    setDarkTheme((prevTheme) => !prevTheme);
-  }
-
   return (
     <>
-      <ThemeContext.Provider value={darkTheme}>
-        <button className='px-5 py-3 border rounded-md cursor-pointer' onClick={toggleTheme}>
-          Toggle Theme
-        </button>
+      <ThemeProvider>
         <FunctionContextComponents />
-      </ThemeContext.Provider>
+        <RedBlueContextComponent />
+      </ThemeProvider>
     </>
   );
 };
